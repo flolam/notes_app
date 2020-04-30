@@ -1,10 +1,6 @@
 import fs from 'fs'
 import chalk from "chalk";
 
-const getNotes = () => {
-  return 'your notes...'
-}
-
 const addNotes = (title, body) => {
   const notes = loadNotes()
   const duplicateNote = notes.find(note => note.title === title)
@@ -50,12 +46,10 @@ const readNote = title => {
   }
 }
 
-
 const saveNotes = notes => {
   const dataJSON = JSON.stringify(notes)
   fs.writeFileSync('notes.json', dataJSON)
 }
-
 const loadNotes = () => {
   try {
     const dataBuffer = fs.readFileSync('./notes.json')
